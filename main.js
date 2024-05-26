@@ -85,7 +85,6 @@ function factura (total){
 }while(monto == false)*/
 
 
-
 const Postre = function (nombre,precio,stock){ // funcion constructora
 
     this.nombre= nombre
@@ -105,12 +104,27 @@ let menu = [postre1,postre2,postre3,postre4]
 
 function filtrarPostre(){
     
-    let producto = prompt("ingresa tu busqueda").toUpperCase().trim()
-    let resultado = menu.filter( (x)=>x.nombre.toUpperCase().includes(producto.toUpperCase()))
+ producto = prompt("ingrese un postre").toUpperCase().trim()
+let resultado = menu.filter((x)=>x.nombre.toUpperCase().includes(producto.toUpperCase()))
 
     if(resultado.length > 0){
-        console.log(menu.filter((resultado)=>resultado.precio))    
+       let cantidad = parseInt(prompt("ingrese cantidad"))
+      const precio = resultado.map((x)=>x.precio)
+      let factura = precio * cantidad
+      alert(`la factura es ${factura}`) 
+    
+      
     }else{
         alert("disculpe por no tener lo que desea, tomaremos en cuenta su busqueda" + producto)
     }
 }
+
+console.log(filtrarPostre())
+ /*function total (){
+    return precio * cantidad
+ }*/
+
+ //let cantidad = parseInt(prompt("ingrese cantidad"))
+
+
+
